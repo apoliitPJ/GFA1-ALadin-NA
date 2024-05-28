@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .success {
+            border: 1px solid green;
+        } 
+        .error {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <form id="signUp" onsubmit="return userinput();">
+        <fieldset form="signUp">
+            <legend>Sign Up</legend>
+            <label for="Name">Name:</label><br>
+            <input type="text" id="Name" name="Name" onblur="changecolor(this)" onfocus="resetcolor(this)"><br>
+
+
+            <label for="prefn">Preferred username:</label><br>
+            <input type="text" id="Pref" name="prefn" onblur="changecolor(this)" onfocus="resetcolor(this)"><br>
+
+
+            <label for="pass">Password:</label><br>
+            <input type="password" id="Pass" name="pass" onblur="changecolor(this)" onfocus="resetcolor(this)"><br>
+
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="Email" onblur="changecolor(this)" onfocus="resetcolor(this)"><br>
+
+
+            <label for="Add">Address:</label><br>
+            <input type="text" id="Add" name="Add" onblur="changecolor(this)" onfocus="resetcolor(this)"><br>
+
+
+            <label for="gend">What is your gender?</label><br>
+            <select name="gender" id="gend" onblur="changecolor(this)" onfocus="resetcolor(this)">
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Prefer not to say">Prefer not to say</option>
+            </select><br>
+
+
+            <label for="textArea">Interests:</label> <br>
+            <textarea id="tarea" name="Interests" rows="5" cols="45" onblur="changecolor(this)" onfocus="resetcolor(this)"></textarea><br>
+
+            <input type="submit" value="Login">
+            <input type="reset" value="Clear">
+        </fieldset>
+    </form>
+
+    <p id="N"></p>
+    <p id="pname"></p>
+    <p id="pass"></p>
+    <p id="e"></p>
+    <p id="add"></p>
+    <p id="gen"></p>
+    <p id="inter"></p>
+
+    <script>
+        function userinput() {
+            var name = document.getElementById("Name").value;
+            var prefName = document.getElementById("Pref").value;
+            var pass = document.getElementById("Pass").value;
+            var email = document.getElementById("email").value;
+            var add = document.getElementById("Add").value;
+            var gen = document.getElementById("gend").value;
+            var inte = document.getElementById("tarea").value;
+
+            document.getElementById("N").innerHTML = "Name: " + name + "<br>";
+            document.getElementById("pname").innerHTML = "Preferred username: " + prefName + "<br>";
+            document.getElementById("pass").innerHTML = "Password: " + pass + "<br>";
+            document.getElementById("e").innerHTML = "Email: " + email + "<br>";
+            document.getElementById("add").innerHTML = "Address: " + add + "<br>";
+            document.getElementById("gen").innerHTML = "Gender: " + gen + "<br>";
+            document.getElementById("inter").innerHTML = "Interests: " + inte + "<br>";
+
+            return false;
+        }
+
+        function changecolor(input) {
+            if (input.value === "") {
+                input.classList.add("error");
+            } 
+            else {
+                input.classList.remove("error");
+                input.classList.add("success");
+            }
+        }
+
+        function resetcolor(input) {
+            input.classList.remove("error");
+            input.classList.remove("success");
+        }
+    </script>
+</body>
+</html>
